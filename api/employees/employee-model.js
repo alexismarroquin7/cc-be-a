@@ -5,7 +5,6 @@ const NOTION_EMPLOYEES_DB_ID = process.env.NODE_ENV === 'development'
 : process.env.NOTION_EMPLOYEES_DB_ID;
 
 const findAll = async () => {
-
   const employees = await notion.databases.query({
     database_id: NOTION_EMPLOYEES_DB_ID,
     sorts: [

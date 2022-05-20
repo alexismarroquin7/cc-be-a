@@ -2,9 +2,11 @@ const router = require('express').Router();
 const Schedule = require('./schedules-model');
 
 router.get('/', async (req, res, next) => {
+  const { query } = req;
+
   try {
-    const employees = await Schedule.findAll();
-    res.status(200).json(employees);
+    const schedules = await Schedule.findAll(query);
+    res.status(200).json(schedules);
   } catch (err) {
     next(err);
   }
